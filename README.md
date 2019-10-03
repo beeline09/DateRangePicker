@@ -1,4 +1,5 @@
-# SmoothDateRangePicker
+# DateRangePicker
+Forked from [SmoothDateRangePicker by leavjenn] (https://github.com/leavjenn/SmoothDateRangePicker)
 Smooth Date Range Picker is an android widget for selecting date range quickly and easily, following Material Design principle. This library is based on [datetimepicker from Android frameworks](https://android.googlesource.com/platform/frameworks/opt/datetimepicker/) and [Material DateTime Picker by wdullaer](https://github.com/wdullaer/MaterialDateTimePicker).
 
 Date Range Picker | Duration Number Pad | Date Range Picker Dark Theme | Date Range Picker Landscape
