@@ -22,7 +22,7 @@ repositories {
 Add the following into app `build.gradle`:
 ```
 dependencies {
-  implementation 'daterangepicker:library:0.2.0'
+  implementation 'com.github.beeline09:DateRangePicker:1.0.2'
 }
 ```
 
