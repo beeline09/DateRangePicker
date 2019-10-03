@@ -12,10 +12,10 @@ import java.util.*
 
 class NumberPadView : TableLayout, View.OnClickListener {
     private var mContext: Context? = null
-    private var mController: SmoothDateRangePickerController? = null
+    private var mController: DateRangePickerController? = null
     private var mTextColor: Int = 0
 
-    constructor(context: Context, controller: SmoothDateRangePickerController) : super(context) {
+    constructor(context: Context, controller: DateRangePickerController) : super(context) {
         mContext = context
         mController = controller
         init()

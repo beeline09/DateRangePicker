@@ -41,7 +41,7 @@ import java.util.*
 /**
  * Dialog allowing users to select a date.
  */
-class SmoothDateRangePickerFragment : DialogFragment(), OnClickListener, SmoothDateRangePickerController {
+class DateRangePickerFragment : DialogFragment(), OnClickListener, DateRangePickerController {
 
     private val mCalendar = Calendar.getInstance()
     private val mCalendarEnd = Calendar.getInstance()
@@ -133,7 +133,7 @@ class SmoothDateRangePickerFragment : DialogFragment(), OnClickListener, SmoothD
          * with [Calendar].
          * @param dayEnd    The end day of the month that was set.
          */
-        fun onDateRangeSet(view: SmoothDateRangePickerFragment, yearStart: Int, monthStart: Int,
+        fun onDateRangeSet(view: DateRangePickerFragment, yearStart: Int, monthStart: Int,
                            dayStart: Int, yearEnd: Int, monthEnd: Int, dayEnd: Int)
     }
 
@@ -333,7 +333,7 @@ class SmoothDateRangePickerFragment : DialogFragment(), OnClickListener, SmoothD
         okButton.setOnClickListener {
             tryVibrate()
             if (mCallBack != null) {
-                mCallBack!!.onDateRangeSet(this@SmoothDateRangePickerFragment,
+                mCallBack!!.onDateRangeSet(this@DateRangePickerFragment,
                         mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH),
                         mCalendar.get(Calendar.DAY_OF_MONTH), mCalendarEnd.get(Calendar.YEAR),
                         mCalendarEnd.get(Calendar.MONTH), mCalendarEnd.get(Calendar.DAY_OF_MONTH))
@@ -912,7 +912,7 @@ class SmoothDateRangePickerFragment : DialogFragment(), OnClickListener, SmoothD
 
     companion object {
 
-        private val TAG = "SmoothDRPFragment"
+        private val TAG = "DateRangePickerFragment"
 
         private val UNINITIALIZED = -1
         private val MONTH_AND_DAY_VIEW = 0
@@ -963,8 +963,8 @@ class SmoothDateRangePickerFragment : DialogFragment(), OnClickListener, SmoothD
          */
         fun newInstance(callBack: OnDateRangeSetListener, year: Int,
                         monthOfYear: Int,
-                        dayOfMonth: Int): SmoothDateRangePickerFragment {
-            val ret = SmoothDateRangePickerFragment()
+                        dayOfMonth: Int): DateRangePickerFragment {
+            val ret = DateRangePickerFragment()
             ret.initialize(callBack, year, monthOfYear, dayOfMonth)
             return ret
         }
@@ -973,8 +973,8 @@ class SmoothDateRangePickerFragment : DialogFragment(), OnClickListener, SmoothD
          * @param callBack How the parent is notified that the date is set.
          * the initial date is set to today
          */
-        fun newInstance(callBack: OnDateRangeSetListener): SmoothDateRangePickerFragment {
-            val ret = SmoothDateRangePickerFragment()
+        fun newInstance(callBack: OnDateRangeSetListener): DateRangePickerFragment {
+            val ret = DateRangePickerFragment()
             val todayCal = Calendar.getInstance()
             ret.initialize(callBack, todayCal.get(Calendar.YEAR), todayCal.get(Calendar.MONTH),
                     todayCal.get(Calendar.DAY_OF_MONTH))

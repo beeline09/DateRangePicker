@@ -26,9 +26,9 @@ class SimpleDayPickerView : DayPickerView {
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
-    constructor(context: Context, controller: SmoothDateRangePickerController) : super(context, controller) {}
+    constructor(context: Context, controller: DateRangePickerController) : super(context, controller) {}
 
-    override fun createMonthAdapter(context: Context, controller: SmoothDateRangePickerController?): MonthAdapter {
+    override fun createMonthAdapter(context: Context, controller: DateRangePickerController?): MonthAdapter {
         return SimpleMonthAdapter(context, controller)
     }
 

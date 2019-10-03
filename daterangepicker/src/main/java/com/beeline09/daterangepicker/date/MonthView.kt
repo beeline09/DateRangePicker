@@ -44,7 +44,7 @@ import java.util.*
  * A calendar-like view displaying a specified month and the appropriate selectable day numbers
  * within the specified month.
  */
-abstract class MonthView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null, protected var mController: SmoothDateRangePickerController? = null) : View(context, attr) {
+abstract class MonthView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null, protected var mController: DateRangePickerController? = null) : View(context, attr) {
 
     // affects the padding on the sides of this view
     protected var mEdgePadding = 0
@@ -193,7 +193,7 @@ abstract class MonthView @JvmOverloads constructor(context: Context, attr: Attri
         initView()
     }
 
-    fun setDatePickerController(controller: SmoothDateRangePickerController) {
+    fun setDatePickerController(controller: DateRangePickerController) {
         mController = controller
     }
 

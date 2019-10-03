@@ -39,7 +39,7 @@ class YearPickerView
 /**
  * @param context Bla-bla-bla
  */
-(context: Context, private val mController: SmoothDateRangePickerController) : ListView(context), OnItemClickListener, SmoothDateRangePickerFragment.OnDateChangedListener {
+(context: Context, private val mController: DateRangePickerController) : ListView(context), OnItemClickListener, DateRangePickerFragment.OnDateChangedListener {
     private var mAdapter: YearAdapter? = null
     private val mViewSize: Int
     private val mChildSize: Int

@@ -32,7 +32,7 @@ import android.widget.AbsListView.OnScrollListener
 import android.widget.ListView
 
 import com.beeline09.daterangepicker.Utils
-import com.beeline09.daterangepicker.date.SmoothDateRangePickerFragment.OnDateChangedListener
+import com.beeline09.daterangepicker.date.DateRangePickerFragment.OnDateChangedListener
 
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -73,7 +73,7 @@ abstract class DayPickerView : ListView, OnScrollListener, OnDateChangedListener
     // used for tracking what state listview is in
     protected var mCurrentScrollState = OnScrollListener.SCROLL_STATE_IDLE
 
-    private var mController: SmoothDateRangePickerController? = null
+    private var mController: DateRangePickerController? = null
     private var mPerformingScroll: Boolean = false
 
     protected var mScrollStateChangedRunnable = ScrollStateRunnable()
@@ -107,12 +107,12 @@ abstract class DayPickerView : ListView, OnScrollListener, OnDateChangedListener
         init(context)
     }
 
-    constructor(context: Context, controller: SmoothDateRangePickerController) : super(context) {
+    constructor(context: Context, controller: DateRangePickerController) : super(context) {
         init(context)
         setController(controller)
     }
 
-    fun setController(controller: SmoothDateRangePickerController) {
+    fun setController(controller: DateRangePickerController) {
         mController = controller
         mController!!.registerOnDateChangedListener(this)
         refreshAdapter()
@@ -146,7 +146,7 @@ abstract class DayPickerView : ListView, OnScrollListener, OnDateChangedListener
         adapter = mAdapter
     }
 
-    abstract fun createMonthAdapter(context: Context, controller: SmoothDateRangePickerController?): MonthAdapter
+    abstract fun createMonthAdapter(context: Context, controller: DateRangePickerController?): MonthAdapter
 
     /*
      * Sets all the required fields for the list view. Override this method to

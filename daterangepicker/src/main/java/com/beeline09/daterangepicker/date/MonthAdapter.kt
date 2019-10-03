@@ -30,7 +30,7 @@ import java.util.HashMap
  * An adapter for a list of [MonthView] items.
  */
 abstract class MonthAdapter(private val mContext: Context,
-                            protected val mController: SmoothDateRangePickerController?) : BaseAdapter(), MonthView.OnDayClickListener {
+                            protected val mController: DateRangePickerController?) : BaseAdapter(), MonthView.OnDayClickListener {
 
     private var mSelectedDay: CalendarDay? = null
 

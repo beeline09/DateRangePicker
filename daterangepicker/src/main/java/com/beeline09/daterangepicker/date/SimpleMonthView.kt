@@ -24,7 +24,7 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 
 @SuppressLint("ViewConstructor")
-class SimpleMonthView(context: Context, attr: AttributeSet?, controller: SmoothDateRangePickerController?) : MonthView(context, attr, controller) {
+class SimpleMonthView(context: Context, attr: AttributeSet?, controller: DateRangePickerController?) : MonthView(context, attr, controller) {
 
     override fun drawMonthDay(canvas: Canvas, year: Int, month: Int, day: Int,
                               x: Int, y: Int, startX: Int, stopX: Int, startY: Int, stopY: Int) {
