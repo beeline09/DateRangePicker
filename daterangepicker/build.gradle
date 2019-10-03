@@ -15,7 +15,7 @@ ext {
     siteUrl = 'https://github.com/beeline09/DateRangePicker'
     gitUrl = 'https://github.com/beeline09/DateRangePicker.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'beeline09'
     developerName = 'Rasul Ismailov'

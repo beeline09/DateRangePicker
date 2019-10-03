@@ -17,6 +17,7 @@
 package com.beeline09.daterangepicker.date
 
 import android.content.DialogInterface
+import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.text.InputType
@@ -37,6 +38,13 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import java.text.SimpleDateFormat
 import java.util.*
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.os.Build
+import android.os.Build.VERSION_CODES.Q
+import android.os.Build.VERSION.SDK_INT
+
+
 
 /**
  * Dialog allowing users to select a date.
@@ -368,7 +376,13 @@ class DateRangePickerFragment : DialogFragment(), OnClickListener, DateRangePick
             view.findViewById<View>(R.id.day_picker_selected_date_layout_end).setBackgroundColor(accentColor)
             mDurationView!!.setBackgroundColor(accentColor)
             mDurationEditText!!.highlightColor = Utils.darkenColor(accentColor)
-            mDurationEditText!!.background.setColorFilter(Utils.darkenColor(accentColor), PorterDuff.Mode.SRC_ATOP)
+
+
+            if (SDK_INT >= Q) {
+                mDurationEditText!!.background.colorFilter = BlendModeColorFilter(Utils.darkenColor(accentColor), BlendMode.SRC_ATOP)
+            } else {
+                mDurationEditText!!.background.setColorFilter(Utils.darkenColor(accentColor), PorterDuff.Mode.SRC_ATOP)
+            }
             okButton.setTextColor(accentColor)
             cancelButton.setTextColor(accentColor)
             mYearPickerView!!.setAccentColor(accentColor)

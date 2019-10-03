@@ -31,6 +31,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.customview.widget.ExploreByTouchHelper
@@ -140,7 +141,7 @@ abstract class MonthView @JvmOverloads constructor(context: Context, attr: Attri
      */
     val accessibilityFocus: CalendarDay?
         get() {
-            val day = mTouchHelper.focusedVirtualView
+            val day = mTouchHelper.accessibilityFocusedVirtualViewId
             return if (day >= 0) {
                 CalendarDay(year, month, day)
             } else null
@@ -157,19 +158,19 @@ abstract class MonthView @JvmOverloads constructor(context: Context, attr: Attri
 
         val darkTheme = mController != null && mController!!.isThemeDark
         if (darkTheme) {
-            mDayTextColor = res.getColor(R.color.mdtp_date_picker_text_normal_dark_theme)
-            mMonthDayTextColor = res.getColor(R.color.mdtp_date_picker_month_day_dark_theme)
-            mDisabledDayTextColor = res.getColor(R.color.mdtp_date_picker_text_disabled_dark_theme)
-            mHighlightedDayTextColor = res.getColor(R.color.mdtp_date_picker_text_highlighted_dark_theme)
+            mDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_text_normal_dark_theme, context.theme)
+            mMonthDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_month_day_dark_theme, context.theme)
+            mDisabledDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_text_disabled_dark_theme, context.theme)
+            mHighlightedDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_text_highlighted_dark_theme, context.theme)
         } else {
-            mDayTextColor = res.getColor(R.color.mdtp_date_picker_text_normal)
-            mMonthDayTextColor = res.getColor(R.color.mdtp_date_picker_month_day)
-            mDisabledDayTextColor = res.getColor(R.color.mdtp_date_picker_text_disabled)
-            mHighlightedDayTextColor = res.getColor(R.color.mdtp_date_picker_text_highlighted)
+            mDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_text_normal, context.theme)
+            mMonthDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_month_day, context.theme)
+            mDisabledDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_text_disabled, context.theme)
+            mHighlightedDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_date_picker_text_highlighted, context.theme)
         }
-        mSelectedDayTextColor = res.getColor(R.color.mdtp_white)
-        mTodayNumberColor = res.getColor(R.color.mdtp_accent_color)
-        mMonthTitleColor = res.getColor(R.color.mdtp_white)
+        mSelectedDayTextColor = ResourcesCompat.getColor(res, R.color.mdtp_white, context.theme)
+        mTodayNumberColor = ResourcesCompat.getColor(res, R.color.mdtp_accent_color, context.theme)
+        mMonthTitleColor = ResourcesCompat.getColor(res, R.color.mdtp_white, context.theme)
 
         mStringBuilder = StringBuilder(50)
         mFormatter = Formatter(mStringBuilder, Locale.getDefault())
@@ -665,7 +666,7 @@ abstract class MonthView @JvmOverloads constructor(context: Context, attr: Attri
         }
 
         fun clearFocusedVirtualView() {
-            val focusedVirtualView = focusedVirtualView
+            val focusedVirtualView = accessibilityFocusedVirtualViewId
             if (focusedVirtualView != ExploreByTouchHelper.INVALID_ID) {
                 getAccessibilityNodeProvider(this@MonthView).performAction(
                         focusedVirtualView,
