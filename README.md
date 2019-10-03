@@ -28,30 +28,30 @@ dependencies {
 
 ## Usage
 
-Since SmoothDateRangePickerFragment is a subclass of DialogFragment, the usage is just like other DialogFragment.
+Since DateRangePickerFragment is a subclass of DialogFragment, the usage is just like other DialogFragment.
 
 **Instantiation, the default selected date is set to today:**
 ```
-SmoothDateRangePickerFragment.newInstance(SmoothDateRangePickerFragment.OnDateRangeSetListener callBack)
+DateRangePickerFragment.newInstance(DateRangePickerFragment.OnDateRangeSetListener callBack)
 ```
 
 
 **Instantiation, specify the default selected date:**
 ```
-SmoothDateRangePickerFragment.newInstance(SmoothDateRangePickerFragment.OnDateRangeSetListener callBack, 
+DateRangePickerFragment.newInstance(DateRangePickerFragment.OnDateRangeSetListener callBack, 
 int year, int monthOfYear, int dayOfMonth)
 ```
 
 After instantiation, remember to call
 
-`show (FragmentManager manager, String tag)`
+`show (SupportFragmentManager manager, String tag)`
 
 Example:
 ```
-SmoothDateRangePickerFragment smoothDateRangePickerFragment = SmoothDateRangePickerFragment.newInstance(
-new SmoothDateRangePickerFragment.OnDateRangeSetListener() {
+DateRangePickerFragment dateRangePickerFragment = DateRangePickerFragment.newInstance(
+new DateRangePickerFragment.OnDateRangeSetListener() {
                     @Override
-                    public void onDateRangeSet(SmoothDateRangePickerFragment view,
+                    public void onDateRangeSet(DateRangePickerFragment view,
                                                int yearStart, int monthStart,
                                                int dayStart, int yearEnd,
                                                int monthEnd, int dayEnd) {
@@ -59,7 +59,7 @@ new SmoothDateRangePickerFragment.OnDateRangeSetListener() {
                     }
                 });
                 
-smoothDateRangePickerFragment.show(getFragmentManager(), "smoothDateRangePicker");
+dateRangePickerFragment.show(getSupportFragmentManager(), "dateRangePicker");
 ```
 
 
